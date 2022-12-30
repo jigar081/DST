@@ -1,0 +1,86 @@
+#include<stdlib.h>
+#define stack_size 5
+int top = -1 , st[10],item;
+
+void push()
+{
+ if(top == stack_size -1)
+ {
+ printf("stack overflow condition\n");
+ }
+ else
+ {
+ printf("insert an element : ");
+ scanf("%d",&item);
+
+ top++;
+ st[top] = item;
+ }
+}
+
+int pop()
+{
+ int del_element;
+
+ if(top == -1)
+ {
+ printf("stack underflow\n");
+ }
+ else
+ {
+ del_element = st[top];
+ top--;
+ return (del_element);
+ }
+
+}
+
+void display()
+{
+ if( top == -1)
+ {
+ printf("stack is empty\n");
+
+ }
+ else
+ {
+ printf("the element of stack are :");
+ for(int i=0 ;i<top ;i++)
+ {
+ printf("%d\n",st[i]);
+ }
+ }
+}
+
+
+
+void main()
+{
+ int p,n;
+
+ while(1)
+ {
+ printf("choose the following from listed below:\n 1 push\n 2 pop\n 3 display\n 4 exit\n ");
+ scanf("%d",&n);
+
+ switch(n)
+ {
+
+ case 1: push();
+ break;
+
+ case 2: p = pop();
+ printf("the deleted number is : %d\n",p);
+ break;
+
+ case 3: display();
+ break;
+
+ case 4: exit(0);
+
+ default : printf("enter a valid number");
+ break;
+ } 
+ }
+
+}
